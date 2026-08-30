@@ -7,6 +7,19 @@ lighter, public-facing summary once things are actually decided or done.
 Status values: `Open` (not started) · `Researching` (info gathered, decision
 pending) · `Decided` (chosen, not yet actioned) · `Done` (actioned/live).
 
+## nopCommerce demo — separate project, separate session
+
+The nopCommerce-based working demonstration (retail platform spec above) is
+being built in its own dedicated Claude Code Remote session, titled
+**"NHS Top Up — nopCommerce Demo Build"** (session_01YGVbatx6sDXN5Lrbmj6xRq),
+kicked off 30 Aug 2026. Not this repo, not this session — different tech
+stack (ASP.NET Core / nopCommerce vs. this Next.js site). That session was
+briefed with the full retail-platform spec above, the two architectural
+decisions (modify nopCommerce core directly rather than plugin-per-feature;
+research Enterprise vs. Community edition licensing before assuming
+anything from Enterprise is usable), and told to confirm the GitHub
+account/repo with Jon before creating anything.
+
 ## Legal & governance
 
 | Item | Status | Notes |
