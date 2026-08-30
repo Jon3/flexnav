@@ -10,7 +10,7 @@ export const site = {
     "NHS Top Up is an independent, proposal-stage concept. It is not an official NHS or government project, is not affiliated with or endorsed by NHS England or any NHS body, and does not currently accept donations of any kind.",
   disclaimerShort:
     "Proposal stage — not an official NHS or government project. No donations are being accepted yet.",
-  contactEmail: "hello@nhstopup.example",
+  contactEmail: "jonathonhopley@hotmail.com",
 } as const;
 
 export const navItems: NavItem[] = [

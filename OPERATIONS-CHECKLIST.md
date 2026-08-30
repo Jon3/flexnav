@@ -22,6 +22,13 @@ pending) · `Decided` (chosen, not yet actioned) · `Done` (actioned/live).
 | SORP compliance timing | Researching | SORP 2026 (charity accounting standard) applies to periods starting on/after 1 Jan 2026 — relevant to when we formally register. |
 | Financial transparency model | Researching | Long-term goal: append-only, auditable transaction record (no editing past entries, only new correcting entries) — gets blockchain-style tamper-evidence without running actual blockchain infrastructure. Start with a single trusted central ledger. Ties to "Transparent by design" site messaging. |
 
+## Form email delivery
+
+| Item | Status | Notes |
+|---|---|---|
+| Get Involved / Contact form emails | Done (code) — needs API key | Both forms now POST to `app/api/get-involved` / `app/api/contact`, which send via Resend to jonathonhopley@hotmail.com. **Action needed:** sign up at resend.com using jonathonhopley@hotmail.com (lets sending work immediately without domain verification), generate an API key, then add it as `RESEND_API_KEY` in Vercel Project Settings -> Environment Variables, and redeploy. Until then, forms show an honest "that didn't send" error rather than a false success. |
+| Public contact email | Done | Fixed a placeholder `hello@nhstopup.example` that had been live on the Contact page since the first build — now shows the real `jonathonhopley@hotmail.com`. |
+
 ## Technology & funding for tech
 
 | Item | Status | Notes |

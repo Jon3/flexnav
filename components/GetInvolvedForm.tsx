@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { roleOptions } from "@/data/roles";
+import { site } from "@/data/site";
 import type { InvolvementRole } from "@/types";
 
 interface GetInvolvedSubmission {
@@ -11,14 +12,21 @@ interface GetInvolvedSubmission {
   message: string;
 }
 
-// Placeholder for the future submission endpoint. Swap this out for a real
-// API call once there's somewhere to send the data.
-async function submitGetInvolved(data: GetInvolvedSubmission): Promise<void> {
-  console.log("Get involved submission (not yet wired to a backend):", data);
+async function submitGetInvolved(data: GetInvolvedSubmission): Promise<{ ok: boolean }> {
+  try {
+    const response = await fetch("/api/get-involved", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    return { ok: response.ok };
+  } catch {
+    return { ok: false };
+  }
 }
 
 export function GetInvolvedForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "submitted">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "submitted" | "error">("idle");
   const [role, setRole] = useState<InvolvementRole>("supporter");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -26,16 +34,20 @@ export function GetInvolvedForm() {
     const form = new FormData(event.currentTarget);
     setStatus("submitting");
 
-    await submitGetInvolved({
+    const result = await submitGetInvolved({
       name: String(form.get("name") ?? ""),
       email: String(form.get("email") ?? ""),
       role,
       message: String(form.get("message") ?? ""),
     });
 
-    setStatus("submitted");
-    event.currentTarget.reset();
-    setRole("supporter");
+    if (result.ok) {
+      setStatus("submitted");
+      event.currentTarget.reset();
+      setRole("supporter");
+    } else {
+      setStatus("error");
+    }
   }
 
   if (status === "submitted") {
@@ -45,6 +57,21 @@ export function GetInvolvedForm() {
         <p className="mt-1 text-sm">
           We&apos;ve noted your interest. Since NHS Top Up is still at the proposal stage, there&apos;s no
           formal onboarding yet — we&apos;ll be in touch as things develop.
+        </p>
+      </div>
+    );
+  }
+
+  if (status === "error") {
+    return (
+      <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900">
+        <p className="font-semibold">Sorry, that didn&apos;t send.</p>
+        <p className="mt-1 text-sm">
+          Something went wrong on our end and your message wasn&apos;t delivered. Please email{" "}
+          <a href={`mailto:${site.contactEmail}`} className="font-medium underline">
+            {site.contactEmail}
+          </a>{" "}
+          directly instead.
         </p>
       </div>
     );

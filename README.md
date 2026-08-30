@@ -53,18 +53,20 @@ each page, so copy can be edited without touching component code, and new items
   official status.
 - **Disclaimer surfaced everywhere.** A short disclaimer banner appears site-wide, with
   the fuller wording in the footer and on key pages (home, about, get involved).
-- **Forms are UI-only for now.** The Get Involved and Contact forms capture input and
-  show a confirmation, but don't submit anywhere yet — see the `submitGetInvolved` /
-  `submitContact` functions in `components/GetInvolvedForm.tsx` and
-  `components/ContactForm.tsx`, which are the intended integration points for a future
-  backend or form service.
+- **Forms email their submissions.** The Get Involved and Contact forms POST to
+  `app/api/get-involved/route.ts` and `app/api/contact/route.ts`, which send an email via
+  [Resend](https://resend.com) to the address in `RECIPIENT_EMAIL`. If `RESEND_API_KEY`
+  isn't set, the API returns a clear error rather than pretending to succeed — the form
+  shows an honest "that didn't send" message with a fallback `mailto:` link instead of a
+  false confirmation. See `.env.local.example` for the required environment variable.
 
 ## What's deliberately not built yet
 
 This is a v1 scaffold. Kept simple on purpose, ready to extend later:
 
-- No backend, database, or persistence — forms log to the console only.
+- No database or persistence — form submissions are emailed, not stored anywhere.
 - No CMS — content lives in typed files under `data/`.
 - No authentication, donations, or payment flows (donations aren't being accepted at
   this stage in any case).
-- No analytics or tracking.
+- Vercel Web Analytics is enabled (cookie-free page views); no other analytics or
+  tracking beyond that.

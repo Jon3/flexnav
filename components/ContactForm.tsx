@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { site } from "@/data/site";
 
 interface ContactSubmission {
   name: string;
@@ -8,28 +9,39 @@ interface ContactSubmission {
   message: string;
 }
 
-// Placeholder for the future submission endpoint. Swap this out for a real
-// API call once there's somewhere to send the data.
-async function submitContact(data: ContactSubmission): Promise<void> {
-  console.log("Contact submission (not yet wired to a backend):", data);
+async function submitContact(data: ContactSubmission): Promise<{ ok: boolean }> {
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    return { ok: response.ok };
+  } catch {
+    return { ok: false };
+  }
 }
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "submitted">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "submitted" | "error">("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     setStatus("submitting");
 
-    await submitContact({
+    const result = await submitContact({
       name: String(form.get("name") ?? ""),
       email: String(form.get("email") ?? ""),
       message: String(form.get("message") ?? ""),
     });
 
-    setStatus("submitted");
-    event.currentTarget.reset();
+    if (result.ok) {
+      setStatus("submitted");
+      event.currentTarget.reset();
+    } else {
+      setStatus("error");
+    }
   }
 
   if (status === "submitted") {
@@ -37,6 +49,21 @@ export function ContactForm() {
       <div className="rounded-xl border border-brand-200 bg-brand-50 p-6 text-brand-900">
         <p className="font-semibold">Message received, thank you.</p>
         <p className="mt-1 text-sm">We&apos;ll get back to you as soon as we can.</p>
+      </div>
+    );
+  }
+
+  if (status === "error") {
+    return (
+      <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900">
+        <p className="font-semibold">Sorry, that didn&apos;t send.</p>
+        <p className="mt-1 text-sm">
+          Something went wrong on our end and your message wasn&apos;t delivered. Please email{" "}
+          <a href={`mailto:${site.contactEmail}`} className="font-medium underline">
+            {site.contactEmail}
+          </a>{" "}
+          directly instead.
+        </p>
       </div>
     );
   }
