@@ -19,7 +19,8 @@ export default function GetInvolvedPage() {
       <div className="mt-8 max-w-xl">
         <h2 className="text-lg font-semibold text-slate-900">Specific roles we&apos;re looking to fill</h2>
         <p className="mt-1 text-sm text-slate-600">
-          Beyond general support, a few specific areas need someone to own them early on.
+          Beyond general support, a few specific areas need someone to own them early on — these are
+          founding roles: get involved now and you help shape how NHS Top Up runs from the start.
         </p>
         <div className="mt-4">
           <OpenRolesList roles={openRoles} />

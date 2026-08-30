@@ -46,10 +46,24 @@ pending) · `Decided` (chosen, not yet actioned) · `Done` (actioned/live).
 | Tech Lead | In conversation | Candidate identified (brother-in-law — .NET dev moving into React/apps). Pitch message drafted. Not yet confirmed — published on the public Get Involved page as "In conversation," not "Filled," until he actually says yes. |
 | Charity Status / Accounting Lead | Open | Owns registration, tax, SORP compliance, accounting software choice. |
 | Vehicle & Logistics Lead | Open | Owns fleet deals, maintenance contracts, delivery scaling. |
+| Marketing & Partnerships Lead | Open | Owns PR, brand, and outreach to sponsors/partners. Build local credibility before approaching national/high-profile supporters (see Partnerships & Marketing Ideas below). |
+| International Development Lead | Open | Deliberately later-stage — not a priority until the core model is proven locally. |
 
-These three are now also shown publicly on the Get Involved page ("Specific
+These five are now also shown publicly on the Get Involved page ("Specific
 roles we're looking to fill") — keep this table and that page in sync when
 status changes.
+
+## Partnerships & marketing ideas (not yet pursued — do not name on public site until real)
+
+| Idea | Notes |
+|---|---|
+| Retailer product/tech sponsorship | e.g. a large homeware retailer providing smart-shop tech or merchandise in kind. Speculative — no relationship exists yet. Don't name a specific company publicly until something real is agreed. |
+| Surplus food redistribution | Rather than approaching individual supermarkets cold, more realistic route is via established surplus-food redistribution networks (e.g. FareShare, Company Shop Group) who already have retailer relationships — worth approaching them first. |
+| Delivery network for hire | Once the delivery/logistics side exists, offer it to small local businesses (e.g. fresh/health food producers) at a discount rate as a future income stream — ties to the Vehicle & Logistics Lead role. |
+| Celebrity/high-profile endorsement | Aspirational, right instinct — but credibility usually needs to be built bottom-up first. Realistic order: local press/community traction → regional media → local personalities as "ambassadors" → national/celebrity interest once there's a real story to tell, not before. |
+| Corporate matched-giving / payroll giving | Many large companies match employee donations or run payroll-giving schemes — a proven, lower-effort route into corporate support than chasing a headline sponsor cold. |
+| University partnerships | Business schools often run pro-bono student consulting projects (business plan validation, market research) — cheap, credible early-stage support. |
+| "Founding member" recognition | Public recognition (named founding member status, first refusal on paid roles later) rather than material rewards — charities have private-benefit rules restricting material rewards to founders/volunteers from charitable funds, so recognition-based framing is the safe version of the same idea. |
 
 ---
 
