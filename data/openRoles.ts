@@ -43,7 +43,7 @@ export const openRoles: OpenRole[] = [
     details: [
       "Sets requirements and a simple interview process for each role as the organisation takes on more people.",
       "A deliberately early-building role — there's no formal process yet, this role is about creating one.",
-      "As shops open regionally, this evolves into coordinating regional recruitment, working with local leads.",
+      "Starts as one national point of contact for applications; delegates to regional recruitment leads as shops open regionally, while store managers focus on welcoming new team members rather than hiring them.",
     ],
   },
 

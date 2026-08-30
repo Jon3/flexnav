@@ -83,6 +83,41 @@ Source of truth for role content is `data/openRoles.ts`.
 | Per-role requirements | Open | Define clear, simple requirements for each role (see `data/openRoles.ts`) as people actually apply, rather than over-specifying upfront. |
 | Recruitment Lead role | Added to site | New role added under Leadership & Governance — owns designing the above. As regions/stores open, this evolves into coordinating regional recruitment leads reporting up to this role (or a future recruitment manager). |
 
+### Org structure
+
+- **National recruitment team** (starting point) — handles all applications and video interviews centrally while volume is low.
+- **Regional recruitment leads** — delegated to as regions/stores grow, so hiring stays local without needing a full national team per region from day one.
+- **Store managers** — deliberately kept out of the hiring decision itself; their job is welcoming new team members and day-to-day support once someone's already through the process, not running interviews.
+
+### Process (once built)
+
+Online applications → clear role profile per position (already exists as
+copy in `data/openRoles.ts`, would become structured data) → video interview
+where appropriate (not every role needs one — e.g. casual shop volunteering
+probably shouldn't) → induction.
+
+### Future software module — phased build order
+
+This is the recruitment module's roadmap for whenever the membership/accounts
+system gets built (see the "membership area" discussion — deliberately not
+built yet: needs a database, real user data, and the GDPR obligations that
+come with it). Build in this order, each phase usable on its own before the
+next is added:
+
+1. **Application tracking** — capture and store applications against role
+   profiles. The foundational layer everything else sits on.
+2. **Interview scheduling** — calendar/video-call coordination once
+   application volume justifies it.
+3. **Onboarding** — induction workflow for people who've been accepted.
+4. **Regional assignment** — route applications/people to the right
+   region/store once there's more than one location.
+5. **Internal promotions** — track progression (ties directly to the
+   Leadership pathway on the Get Involved page: volunteer → team leader →
+   store/area/regional).
+
+Each phase should work standalone — don't build phase 3 in a way that
+requires phase 4 to exist, since real growth won't happen in a straight line.
+
 ## Growth pathways (Done)
 
 The Get Involved page now presents three pathways under "Grow with NHS Top
