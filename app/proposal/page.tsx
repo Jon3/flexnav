@@ -33,6 +33,15 @@ export default function ProposalPage() {
         </div>
 
         <div>
+          <h2 className="text-lg font-semibold text-slate-900">How this could reach people</h2>
+          <p className="mt-2 text-slate-600">
+            Physical charity shops are the starting point, but this site is being built on modern, scalable
+            web technology so it can grow alongside the proposal — including, in time, a full online charity
+            shop alongside any physical locations.
+          </p>
+        </div>
+
+        <div>
           <h2 className="text-lg font-semibold text-slate-900">What&apos;s not decided yet</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-600">
             <li>The legal and governance structure</li>

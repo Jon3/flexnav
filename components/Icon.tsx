@@ -9,6 +9,7 @@ const paths: Record<BenefitIcon, string> = {
     "M9 11a3 3 0 100-6 3 3 0 000 6zM17 11a3 3 0 100-6 3 3 0 000 6zM2 21c0-3.31 3.13-6 7-6s7 2.69 7 6M13 15.5c.87-.32 1.87-.5 3-.5 3.87 0 7 2.69 7 6",
   coin: "M12 21a9 9 0 100-18 9 9 0 000 18zM12 7v10M9 9.5c0-1.1 1.34-2 3-2s3 .9 3 2-1.34 2-3 2-3 .9-3 2 1.34 2 3 2 3-.9 3-2",
   clock: "M12 21a9 9 0 100-18 9 9 0 000 18zM12 7v5l3.5 2",
+  growth: "M3 17l6-6 4 4 8-8M21 7h-6v6",
 };
 
 export function Icon({ name, className }: { name: BenefitIcon; className?: string }) {

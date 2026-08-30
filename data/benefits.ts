@@ -25,4 +25,10 @@ export const benefits: Benefit[] = [
       "Every stage of the proposal, and eventually every pound raised, is intended to be tracked and reported openly.",
     icon: "shield",
   },
+  {
+    title: "Built to grow",
+    description:
+      "The site runs on modern, scalable web technology from day one, so it's ready to grow into a full online charity shop as the proposal develops.",
+    icon: "growth",
+  },
 ];

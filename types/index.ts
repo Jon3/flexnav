@@ -9,7 +9,7 @@ export interface Benefit {
   icon: BenefitIcon;
 }
 
-export type BenefitIcon = "heart" | "shield" | "store" | "people" | "coin" | "clock";
+export type BenefitIcon = "heart" | "shield" | "store" | "people" | "coin" | "clock" | "growth";
 
 export type ProposalStage = "concept" | "proposal" | "pilot" | "launch";
 
