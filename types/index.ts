@@ -37,3 +37,11 @@ export interface RoleOption {
   label: string;
   description: string;
 }
+
+export type OpenRoleStatus = "open" | "in-conversation" | "filled";
+
+export interface OpenRole {
+  title: string;
+  status: OpenRoleStatus;
+  description: string;
+}

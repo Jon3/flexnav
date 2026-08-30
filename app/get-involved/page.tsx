@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { GetInvolvedForm } from "@/components/GetInvolvedForm";
+import { OpenRolesList } from "@/components/OpenRolesList";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
+import { openRoles } from "@/data/openRoles";
 
 export const metadata: Metadata = { title: "Get Involved" };
 
@@ -15,6 +17,16 @@ export default function GetInvolvedPage() {
       </p>
 
       <div className="mt-8 max-w-xl">
+        <h2 className="text-lg font-semibold text-slate-900">Specific roles we&apos;re looking to fill</h2>
+        <p className="mt-1 text-sm text-slate-600">
+          Beyond general support, a few specific areas need someone to own them early on.
+        </p>
+        <div className="mt-4">
+          <OpenRolesList roles={openRoles} />
+        </div>
+      </div>
+
+      <div className="mt-10 max-w-xl">
         <GetInvolvedForm />
       </div>
 

@@ -43,9 +43,13 @@ pending) · `Decided` (chosen, not yet actioned) · `Done` (actioned/live).
 
 | Role | Status | Notes |
 |---|---|---|
-| Tech Lead | Open | Owns software choices and scalability plan. |
+| Tech Lead | In conversation | Candidate identified (brother-in-law — .NET dev moving into React/apps). Pitch message drafted. Not yet confirmed — published on the public Get Involved page as "In conversation," not "Filled," until he actually says yes. |
 | Charity Status / Accounting Lead | Open | Owns registration, tax, SORP compliance, accounting software choice. |
 | Vehicle & Logistics Lead | Open | Owns fleet deals, maintenance contracts, delivery scaling. |
+
+These three are now also shown publicly on the Get Involved page ("Specific
+roles we're looking to fill") — keep this table and that page in sync when
+status changes.
 
 ---
 
