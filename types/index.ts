@@ -59,3 +59,9 @@ export interface OpenRole {
   skillsGained?: string;
   details?: string[];
 }
+
+export interface GrowthPathway {
+  title: string;
+  description: string;
+  icon: BenefitIcon;
+}

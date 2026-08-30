@@ -32,6 +32,20 @@ export const openRoles: OpenRole[] = [
     description: "Researches and applies for grants, and builds a wider fundraising strategy.",
     skillsGained: "Fundraising & grant-writing experience",
   },
+  {
+    title: "Recruitment Lead",
+    status: "open",
+    category: "leadership-governance",
+    tags: ["volunteer", "flexible-hours", "hybrid"],
+    description:
+      "Designs how people join NHS Top Up as it grows — clear requirements for each role and a fair, simple process.",
+    skillsGained: "Recruitment & people-process experience",
+    details: [
+      "Sets requirements and a simple interview process for each role as the organisation takes on more people.",
+      "A deliberately early-building role — there's no formal process yet, this role is about creating one.",
+      "As shops open regionally, this evolves into coordinating regional recruitment, working with local leads.",
+    ],
+  },
 
   // Technology & Innovation
   {

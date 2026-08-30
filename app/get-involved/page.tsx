@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { GetInvolvedForm } from "@/components/GetInvolvedForm";
 import { OpenRolesList } from "@/components/OpenRolesList";
+import { GrowthPathways } from "@/components/GrowthPathways";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { openRoles } from "@/data/openRoles";
+import { growthPathways, growthPathwaysEqualityStatement } from "@/data/growthPathways";
 
 export const metadata: Metadata = { title: "Get Involved" };
 
@@ -17,6 +19,17 @@ export default function GetInvolvedPage() {
       </p>
 
       <div className="mt-8">
+        <h2 className="text-lg font-semibold text-slate-900">Grow with NHS Top Up</h2>
+        <p className="mt-1 text-sm text-slate-600">
+          Whether you want to contribute a few hours a month or aim for a long-term career path, there&apos;s
+          a route that fits.
+        </p>
+        <div className="mt-4">
+          <GrowthPathways pathways={growthPathways} equalityStatement={growthPathwaysEqualityStatement} />
+        </div>
+      </div>
+
+      <div className="mt-10">
         <h2 className="text-lg font-semibold text-slate-900">Specific roles we&apos;re looking to fill</h2>
         <p className="mt-1 text-sm text-slate-600">
           Beyond general support, a range of areas need someone to own them early on — these are founding

@@ -75,6 +75,23 @@ each role tagged (Volunteer / Flexible hours / Remote / Hybrid / In-person)
 with visitor-facing filters, plus a "skills you'll build" line per role.
 Source of truth for role content is `data/openRoles.ts`.
 
+## Recruitment process design
+
+| Item | Status | Notes |
+|---|---|---|
+| Video call interview standards | Open | Idea: a short video call for roles beyond casual shop volunteering, once there are enough applicants to warrant it. Not in place yet — the site doesn't claim a formal process exists. |
+| Per-role requirements | Open | Define clear, simple requirements for each role (see `data/openRoles.ts`) as people actually apply, rather than over-specifying upfront. |
+| Recruitment Lead role | Added to site | New role added under Leadership & Governance — owns designing the above. As regions/stores open, this evolves into coordinating regional recruitment leads reporting up to this role (or a future recruitment manager). |
+
+## Growth pathways (Done)
+
+The Get Involved page now presents three pathways under "Grow with NHS Top
+Up": Volunteer (flexible hours), Employment (work experience → part-time →
+full-time as the org grows), and Leadership (volunteer → team leader →
+store/area/regional, with mentoring). Explicit equal-value statement
+included: a few hours a month is valued the same as someone training toward
+a regional leadership role. Source: `data/growthPathways.ts`.
+
 ---
 
 **Process going forward:** raise a requirement or question → it gets added
