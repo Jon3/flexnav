@@ -9,7 +9,8 @@ export const roleOptions: RoleOption[] = [
   {
     value: "volunteer",
     label: "Volunteer",
-    description: "Give time to help shape or run the proposal.",
+    description:
+      "Help with the early, hands-on work of building the proposal itself — governance, structure, research, or admin.",
   },
   {
     value: "professional",
