@@ -44,4 +44,5 @@ export interface OpenRole {
   title: string;
   status: OpenRoleStatus;
   description: string;
+  details?: string[];
 }
