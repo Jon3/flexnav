@@ -38,6 +38,59 @@ pending) · `Decided` (chosen, not yet actioned) · `Done` (actioned/live).
 | AmazonSmile | Decided — not applicable | Discontinued Feb 2023. Do not reference this on the site. |
 | Software/platform choice & scaling plan | Open | Needs a named Tech Lead (see Roles below) to own this. |
 
+### Retail platform & inventory system (production build — separate project)
+
+Base platform: **nopCommerce** (confirmed earlier as the working-demonstration
+platform). This is a large, separate ASP.NET Core + database project — it
+does not belong in this Next.js repo, and hasn't been started. Capturing the
+full spec here now so nothing gets lost before that project kicks off.
+
+**Core principle:** every shop and the online store share one real-time
+inventory system with barcode stock tracking — a single source of truth, not
+per-shop spreadsheets or bolted-on plugins. Sell an item in a shop, the
+website reflects it instantly. Designed to scale from one shop to regions to
+hundreds of stores without a rebuild.
+
+**Standardised in-shop hardware** (same across every shop, so training stays
+simple): tablet or touch-screen PC, barcode label printer, barcode scanner,
+receipt printer, cash drawer, and (later) integrated card payments.
+
+**Stock entry workflow (production):** photo of the item -> short
+description (voice or keyboard) -> choose category -> set price -> Save ->
+print barcode label with price and barcode. Same steps, same order, every
+shop. Voice input target: a volunteer can say something like "Blue Men's
+Nike Hoodie, size large, excellent condition, twelve pounds" and the system
+turns that into a structured product listing — less typing, more doing.
+
+**Manager permissions:** review and edit product listings, correct
+descriptions, override stock/barcode issues, view dashboards. Managers are
+the check on volunteer-entered data, not the ones doing routine data entry.
+
+**Built-in AI assistant:** answers "how do I...?" questions in place of
+needing to escalate every unusual situation back to training or admin;
+suggests categories; helps write/improve descriptions; flags missing details
+before an item goes live. Idea: an "AI review" button that checks clarity,
+pricing consistency, and completeness before publishing a listing. Guiding
+principle carried over from the rest of this project: **software does the
+routine work, people keep control of the big decisions** — the AI assists
+and flags, it doesn't auto-publish unchecked.
+
+**Demo vs. production — explicitly different scope:**
+- **Demo** (part of the proposal, Priority 3 in the original brief): lightweight,
+  concept-only. Shows stock entry, barcode generation, and live stock
+  updates working. No voice input, no AI assistant, no full hardware
+  integration required — it exists to help people understand and question
+  the model, not to be production-ready.
+- **Production** (later, once there's a real organisation to run it): the
+  full system above — standardised hardware, voice input, AI assistant,
+  manager dashboards. This is the polished, volunteer-friendly retail
+  management system; the demo is a proof of concept for it, not a
+  scaled-down version of it that just gets extended in place.
+
+**Flagged for later, not urgent now:** integrated card payments bring PCI-DSS
+compliance obligations — a real cost/process item once that feature is
+actually being built, not before.
+
 ## Vehicles & logistics
 
 | Item | Status | Notes |

@@ -37,7 +37,10 @@ export default function ProposalPage() {
           <p className="mt-2 text-slate-600">
             Physical charity shops are the starting point, but this site is being built on modern, scalable
             web technology so it can grow alongside the proposal — including, in time, a full online charity
-            shop alongside any physical locations.
+            shop alongside any physical locations. The intention is for every shop and the online store to
+            share one real-time inventory system, so when something sells in a shop, the website reflects it
+            instantly — a single source of truth, not disconnected spreadsheets, designed to scale from one
+            shop to hundreds without starting over.
           </p>
         </div>
 
