@@ -40,9 +40,22 @@ export interface RoleOption {
 
 export type OpenRoleStatus = "open" | "in-conversation" | "filled";
 
+export type OpenRoleCategory =
+  | "leadership-governance"
+  | "technology-innovation"
+  | "retail-operations"
+  | "logistics-delivery"
+  | "partnerships-expansion"
+  | "voluntary-opportunities";
+
+export type RoleTag = "volunteer" | "flexible-hours" | "remote" | "hybrid" | "in-person";
+
 export interface OpenRole {
   title: string;
   status: OpenRoleStatus;
+  category: OpenRoleCategory;
+  tags: RoleTag[];
   description: string;
+  skillsGained?: string;
   details?: string[];
 }

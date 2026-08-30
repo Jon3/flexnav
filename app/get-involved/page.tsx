@@ -16,11 +16,14 @@ export default function GetInvolvedPage() {
         interested, tell us how you&apos;d like to help and we&apos;ll keep you in the loop as things develop.
       </p>
 
-      <div className="mt-8 max-w-xl">
+      <div className="mt-8">
         <h2 className="text-lg font-semibold text-slate-900">Specific roles we&apos;re looking to fill</h2>
         <p className="mt-1 text-sm text-slate-600">
-          Beyond general support, a few specific areas need someone to own them early on — these are
-          founding roles: get involved now and you help shape how NHS Top Up runs from the start.
+          Beyond general support, a range of areas need someone to own them early on — these are founding
+          roles: get involved now and you help shape how NHS Top Up runs from the start. Most can flex
+          around you — a few hours here and there is genuinely useful, not just full-time commitment — and
+          many double as a chance to build real experience: retail, tech, logistics, or leadership, not just
+          charity work. Filter by what fits your time and how you&apos;d like to help.
         </p>
         <div className="mt-4">
           <OpenRolesList roles={openRoles} />

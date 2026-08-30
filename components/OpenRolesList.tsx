@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import type { OpenRole, OpenRoleStatus } from "@/types";
+import { useMemo, useState } from "react";
+import type { OpenRole, OpenRoleStatus, RoleTag } from "@/types";
+import { roleCategoryLabels, roleCategoryOrder, roleTagLabels, roleTagOrder } from "@/data/roleCategories";
 
 const statusStyles: Record<OpenRoleStatus, string> = {
   open: "bg-brand-100 text-brand-800",
@@ -32,11 +33,11 @@ function RoleCard({ role }: { role: OpenRole }) {
         aria-expanded={hasDetails ? expanded : undefined}
         disabled={!hasDetails}
       >
-        <h3
+        <h4
           className={`font-semibold text-slate-900 ${role.status === "filled" ? "line-through" : ""}`}
         >
           {role.title}
-        </h3>
+        </h4>
         <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${statusStyles[role.status]}`}>
           {statusLabels[role.status]}
         </span>
@@ -60,6 +61,18 @@ function RoleCard({ role }: { role: OpenRole }) {
 
       <p className="mt-1 text-sm text-slate-600">{role.description}</p>
 
+      <div className="mt-2 flex flex-wrap gap-1.5">
+        {role.tags.map((tag) => (
+          <span key={tag} className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-600">
+            {roleTagLabels[tag]}
+          </span>
+        ))}
+      </div>
+
+      {role.skillsGained && (
+        <p className="mt-2 text-xs font-medium text-brand-700">Build: {role.skillsGained}</p>
+      )}
+
       {hasDetails && expanded && (
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-600">
           {role.details!.map((detail) => (
@@ -72,11 +85,88 @@ function RoleCard({ role }: { role: OpenRole }) {
 }
 
 export function OpenRolesList({ roles }: { roles: OpenRole[] }) {
+  const [activeTags, setActiveTags] = useState<Set<RoleTag>>(new Set());
+
+  function toggleTag(tag: RoleTag) {
+    setActiveTags((prev) => {
+      const next = new Set(prev);
+      if (next.has(tag)) {
+        next.delete(tag);
+      } else {
+        next.add(tag);
+      }
+      return next;
+    });
+  }
+
+  const filteredRoles = useMemo(() => {
+    if (activeTags.size === 0) return roles;
+    return roles.filter((role) => role.tags.some((tag) => activeTags.has(tag)));
+  }, [roles, activeTags]);
+
+  const rolesByCategory = useMemo(() => {
+    const map = new Map<string, OpenRole[]>();
+    for (const role of filteredRoles) {
+      const list = map.get(role.category) ?? [];
+      list.push(role);
+      map.set(role.category, list);
+    }
+    return map;
+  }, [filteredRoles]);
+
   return (
-    <ul className="space-y-3">
-      {roles.map((role) => (
-        <RoleCard key={role.title} role={role} />
-      ))}
-    </ul>
+    <div>
+      <div className="flex flex-wrap gap-2" role="group" aria-label="Filter roles">
+        {roleTagOrder.map((tag) => {
+          const isActive = activeTags.has(tag);
+          return (
+            <button
+              key={tag}
+              type="button"
+              aria-pressed={isActive}
+              onClick={() => toggleTag(tag)}
+              className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
+                isActive
+                  ? "border-brand-700 bg-brand-700 text-white"
+                  : "border-slate-300 bg-white text-slate-600 hover:border-brand-400"
+              }`}
+            >
+              {roleTagLabels[tag]}
+            </button>
+          );
+        })}
+        {activeTags.size > 0 && (
+          <button
+            type="button"
+            onClick={() => setActiveTags(new Set())}
+            className="rounded-full px-3 py-1 text-xs font-semibold text-slate-500 underline"
+          >
+            Clear filters
+          </button>
+        )}
+      </div>
+
+      <div className="mt-6 space-y-8">
+        {roleCategoryOrder.map((category) => {
+          const categoryRoles = rolesByCategory.get(category);
+          if (!categoryRoles?.length) return null;
+          return (
+            <div key={category}>
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                {roleCategoryLabels[category]}
+              </h3>
+              <ul className="mt-3 space-y-3">
+                {categoryRoles.map((role) => (
+                  <RoleCard key={role.title} role={role} />
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+        {filteredRoles.length === 0 && (
+          <p className="text-sm text-slate-500">No roles match those filters right now.</p>
+        )}
+      </div>
+    </div>
   );
 }

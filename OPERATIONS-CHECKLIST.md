@@ -64,6 +64,16 @@ status changes.
 | Corporate matched-giving / payroll giving | Many large companies match employee donations or run payroll-giving schemes — a proven, lower-effort route into corporate support than chasing a headline sponsor cold. |
 | University partnerships | Business schools often run pro-bono student consulting projects (business plan validation, market research) — cheap, credible early-stage support. |
 | "Founding member" recognition | Public recognition (named founding member status, first refusal on paid roles later) rather than material rewards — charities have private-benefit rules restricting material rewards to founders/volunteers from charitable funds, so recognition-based framing is the safe version of the same idea. |
+| Job centre / recruitment platform outreach | Idea: list volunteer roles via local job centres and platforms like Indeed/Reed/Monster, framed as flexible/skill-building opportunities (not paid jobs) — many people would give some time even if not full-time. No relationship or listing exists yet — do not state on the public site that these are live channels until something is actually agreed with a named platform or job centre. |
+
+## Site roles structure (Done)
+
+The Get Involved page now organises all open roles into 6 categories
+(Leadership & Governance, Technology & Innovation, Retail Operations,
+Logistics & Delivery, Partnerships & Expansion, Voluntary Opportunities),
+each role tagged (Volunteer / Flexible hours / Remote / Hybrid / In-person)
+with visitor-facing filters, plus a "skills you'll build" line per role.
+Source of truth for role content is `data/openRoles.ts`.
 
 ---
 
