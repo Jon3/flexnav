@@ -26,7 +26,7 @@ pending) · `Decided` (chosen, not yet actioned) · `Done` (actioned/live).
 
 | Item | Status | Notes |
 |---|---|---|
-| Get Involved / Contact form emails | Done (code) — needs API key | Both forms now POST to `app/api/get-involved` / `app/api/contact`, which send via Resend to jonathonhopley@hotmail.com. **Action needed:** sign up at resend.com using jonathonhopley@hotmail.com (lets sending work immediately without domain verification), generate an API key, then add it as `RESEND_API_KEY` in Vercel Project Settings -> Environment Variables, and redeploy. Until then, forms show an honest "that didn't send" error rather than a false success. |
+| Get Involved / Contact form emails | Done | Both forms POST to `app/api/get-involved` / `app/api/contact`, sending via Resend to jonathonhopley@hotmail.com. `RESEND_API_KEY` added to Vercel as a Sensitive env var. Both forms tested live on the deployed site and confirmed delivering. |
 | Public contact email | Done | Fixed a placeholder `hello@nhstopup.example` that had been live on the Contact page since the first build — now shows the real `jonathonhopley@hotmail.com`. |
 
 ## Technology & funding for tech
