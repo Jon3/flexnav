@@ -18,7 +18,7 @@ export default function GetInvolvedPage() {
         interested, tell us how you&apos;d like to help and we&apos;ll keep you in the loop as things develop.
       </p>
 
-      <div className="mt-8">
+      <div id="pathways" className="mt-8 scroll-mt-24">
         <h2 className="text-lg font-semibold text-slate-900">Grow with NHS Top Up</h2>
         <p className="mt-1 text-sm text-slate-600">
           Whether you want to contribute a few hours a month or aim for a long-term career path, there&apos;s
@@ -29,7 +29,7 @@ export default function GetInvolvedPage() {
         </div>
       </div>
 
-      <div className="mt-10">
+      <div id="roles" className="mt-10 scroll-mt-24">
         <h2 className="text-lg font-semibold text-slate-900">Specific roles we&apos;re looking to fill</h2>
         <p className="mt-1 text-sm text-slate-600">
           Beyond general support, a range of areas need someone to own them early on — these are founding
@@ -43,7 +43,7 @@ export default function GetInvolvedPage() {
         </div>
       </div>
 
-      <div className="mt-10 max-w-xl">
+      <div id="get-involved-form" className="mt-10 max-w-xl scroll-mt-24">
         <GetInvolvedForm />
       </div>
 

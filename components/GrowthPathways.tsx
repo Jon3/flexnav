@@ -12,7 +12,11 @@ export function GrowthPathways({
     <div>
       <ul className="grid gap-4 sm:grid-cols-3">
         {pathways.map((pathway) => (
-          <li key={pathway.title} className="rounded-xl border border-slate-200 bg-white p-5">
+          <li
+            key={pathway.title}
+            id={pathway.title.toLowerCase().replace(/\s+/g, "-")}
+            className="scroll-mt-24 rounded-xl border border-slate-200 bg-white p-5"
+          >
             <Icon name={pathway.icon} className="h-6 w-6 text-brand-700" />
             <h3 className="mt-3 font-semibold text-slate-900">{pathway.title}</h3>
             <p className="mt-1 text-sm text-slate-600">{pathway.description}</p>

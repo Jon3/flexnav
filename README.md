@@ -53,6 +53,13 @@ each page, so copy can be edited without touching component code, and new items
   official status.
 - **Disclaimer surfaced everywhere.** A short disclaimer banner appears site-wide, with
   the fuller wording in the footer and on key pages (home, about, get involved).
+- **Header navigation is a themeable mega menu.** `components/MegaMenu.tsx` renders an accessible
+  disclosure-pattern dropdown on desktop (hover-intent + click, `aria-expanded`/`aria-controls`,
+  closes on outside click/Escape/route change) and an accordion drill-down on mobile — one level of
+  nesting driven entirely by the `mega` field on items in `data/site.ts`. Colours come from CSS
+  variables in `data/navThemes.ts` (three presets: brand/midnight/sunrise); see them side by side,
+  with a live switcher, at `/design/navigation` (not linked from the public nav — a dev reference,
+  in the spirit of this repo's original flexnav plugin's own demo pages).
 - **Forms email their submissions.** The Get Involved and Contact forms POST to
   `app/api/get-involved/route.ts` and `app/api/contact/route.ts`, which send an email via
   [Resend](https://resend.com) to the address in `RECIPIENT_EMAIL`. If `RESEND_API_KEY`

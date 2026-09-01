@@ -151,7 +151,7 @@ export function OpenRolesList({ roles }: { roles: OpenRole[] }) {
           const categoryRoles = rolesByCategory.get(category);
           if (!categoryRoles?.length) return null;
           return (
-            <div key={category}>
+            <div key={category} id={category} className="scroll-mt-24">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
                 {roleCategoryLabels[category]}
               </h3>

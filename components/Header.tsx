@@ -2,26 +2,37 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { navItems, site } from "@/data/site";
+import { navThemes, type NavThemeName } from "@/data/navThemes";
+import { DesktopMegaNav, MobileMegaNav } from "@/components/MegaMenu";
 
-export function Header() {
+export function Header({ theme = "brand" }: { theme?: NavThemeName }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const activeTheme = navThemes[theme];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header
+      data-nav-theme={theme}
+      style={activeTheme.vars as CSSProperties}
+      className="sticky top-0 z-40 border-b border-[var(--nav-border)] bg-[var(--nav-bg)] backdrop-blur"
+    >
       <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link href="/" className="text-lg font-bold text-slate-900" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          className="text-lg font-bold text-[var(--nav-fg)]"
+          onClick={() => setOpen(false)}
+        >
           {site.name}
-          <span className="ml-2 align-middle text-xs font-medium text-brand-700">Proposal</span>
+          <span className="ml-2 align-middle text-xs font-medium text-[var(--nav-accent)]">Proposal</span>
         </Link>
 
         <button
           type="button"
-          className="rounded-md p-2 text-slate-700 hover:bg-slate-100 sm:hidden"
+          className="rounded-md p-2 text-[var(--nav-fg)] hover:bg-[var(--nav-hover)] sm:hidden"
           aria-expanded={open}
-          aria-controls="primary-navigation"
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((v) => !v)}
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
@@ -30,43 +41,10 @@ export function Header() {
           </svg>
         </button>
 
-        <nav id="primary-navigation" className="hidden sm:block" aria-label="Primary">
-          <ul className="flex gap-6 text-sm font-medium text-slate-700">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={
-                    pathname === item.href
-                      ? "text-brand-700"
-                      : "hover:text-brand-700"
-                  }
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <DesktopMegaNav items={navItems} pathname={pathname} />
       </div>
 
-      {open && (
-        <nav aria-label="Primary" className="border-t border-slate-200 sm:hidden">
-          <ul className="mx-auto max-w-3xl px-4 py-2 text-sm font-medium text-slate-700">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={`block py-2 ${pathname === item.href ? "text-brand-700" : ""}`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
+      {open && <MobileMegaNav items={navItems} pathname={pathname} onNavigate={() => setOpen(false)} />}
     </header>
   );
 }

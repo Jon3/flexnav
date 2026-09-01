@@ -1,6 +1,28 @@
 export interface NavItem {
   label: string;
   href: string;
+  mega?: MegaMenuContent;
+}
+
+export interface MegaLink {
+  label: string;
+  href: string;
+  description?: string;
+}
+
+export interface MegaColumn {
+  heading: string;
+  links: MegaLink[];
+}
+
+export interface MegaMenuContent {
+  columns: MegaColumn[];
+  featured?: {
+    eyebrow?: string;
+    title: string;
+    description: string;
+    cta: { label: string; href: string };
+  };
 }
 
 export interface Benefit {

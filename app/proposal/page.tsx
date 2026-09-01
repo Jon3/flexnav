@@ -15,7 +15,7 @@ export default function ProposalPage() {
       </p>
 
       <div className="mt-8 space-y-8">
-        <div>
+        <div id="the-problem" className="scroll-mt-24">
           <h2 className="text-lg font-semibold text-slate-900">The problem</h2>
           <p className="mt-2 text-slate-600">
             NHS services and patients sometimes need small amounts of extra support that sit outside what
@@ -23,7 +23,7 @@ export default function ProposalPage() {
           </p>
         </div>
 
-        <div>
+        <div id="the-idea" className="scroll-mt-24">
           <h2 className="text-lg font-semibold text-slate-900">The idea</h2>
           <p className="mt-2 text-slate-600">
             A network of charity retail shops, run under proper charitable governance, raising funds
@@ -32,7 +32,7 @@ export default function ProposalPage() {
           </p>
         </div>
 
-        <div>
+        <div id="how-it-reaches-people" className="scroll-mt-24">
           <h2 className="text-lg font-semibold text-slate-900">How this could reach people</h2>
           <p className="mt-2 text-slate-600">
             Physical charity shops are the starting point, but this site is being built on modern, scalable
@@ -44,7 +44,7 @@ export default function ProposalPage() {
           </p>
         </div>
 
-        <div>
+        <div id="not-decided-yet" className="scroll-mt-24">
           <h2 className="text-lg font-semibold text-slate-900">What&apos;s not decided yet</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-600">
             <li>The legal and governance structure</li>
@@ -54,7 +54,7 @@ export default function ProposalPage() {
           </ul>
         </div>
 
-        <div>
+        <div id="what-we-need" className="scroll-mt-24">
           <h2 className="text-lg font-semibold text-slate-900">What we need to figure this out</h2>
           <p className="mt-2 text-slate-600">
             Input from supporters, volunteers, healthcare professionals, and potential partners — and,
