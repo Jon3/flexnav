@@ -43,12 +43,30 @@ Status: spec captured here, nothing built yet. Flag which page/section
 needs it first before implementing — no current NHS Top Up page has a
 carousel yet.
 
+## OnlineShop.fyi mockup
+
+Built at `onlineshop-fyi-mockup/` in this repo (own `package.json`, fully
+independent Next.js app — see its own README). It's a look-and-function
+preview of the real OnlineShop.fyi marketplace (MegaMenu, Anything Slider,
+advanced full-page themes, payment/banking plugins — see
+`nop-megamenu-dev`'s `MEGAMENU_MASTER_PLAN.md` §9 for the ecosystem vision
+this previews), with an AI shopping-assistant greeter grounded in the real
+current status of each product — nothing is shown as finished or buyable
+before it actually is.
+
+**It should not stay inside this repo long-term.** It landed here only
+because this session's GitHub integration can't call `create_repository`
+(403 — personal/org repo creation isn't permitted, only pushing to repos
+already attached to the session). Once there's an empty repo for it
+(`Jon3/onlineshop-fyi-mockup` or whatever name is preferred), lift the
+folder out — see that folder's README for the `git subtree split` command.
+
 ## Open items for John
 
+- Create an empty repo for the OnlineShop.fyi mockup so it can move out of
+  `flexnav` (see above).
 - Confirm task boundaries between Claude and Codex once the Codex side is
   set up, so branches/worktrees don't overlap.
-- Confirm scope and repo/domain for the new "online shop" mockup project
-  raised in chat (separate from NHS Top Up) before it gets built.
 
 ## Related docs
 

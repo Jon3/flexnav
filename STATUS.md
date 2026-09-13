@@ -5,6 +5,31 @@ Keep entries short — this is a handoff log, not a diary.
 
 ---
 
+## 2026-09-13 — Claude (session 2)
+
+**Done:**
+- Built the OnlineShop.fyi mockup at `onlineshop-fyi-mockup/` — home,
+  products listing, product detail pages, and an AI shopping-assistant
+  greeter (`components/AiGreeter.tsx` + `app/api/assistant/route.ts`,
+  OpenAI-backed, same degrade-gracefully-without-a-key pattern as NHS Top
+  Up). Product copy/status pulled from the real state in
+  `nop-megamenu-dev/MEGAMENU_MASTER_PLAN.md` and
+  `AnythingSlider/ANYTHINGSLIDER_PLAN.md` (both cloned and inspected this
+  session) rather than invented.
+- Fully independent Next.js app (own package.json/config), root `flexnav`
+  `tsconfig.json` updated to exclude it so the two builds don't collide;
+  verified both build/lint cleanly on their own.
+
+**Blocked / needs a decision from John:**
+- `create_repository` returns 403 for this session — can't create the
+  intended standalone repo for the mockup. It's sitting in `flexnav/
+  onlineshop-fyi-mockup/` in the meantime (see `PLAN.md` and that folder's
+  README for how to lift it out once an empty repo exists).
+
+**Branch:** `claude/collaboration-chat-got-uitv2e`
+
+---
+
 ## 2026-09-13 — Claude
 
 **Done:**
