@@ -5,6 +5,42 @@ Keep entries short — this is a handoff log, not a diary.
 
 ---
 
+## 2026-09-13 — Claude (session 3)
+
+**Done:**
+- Removed `onlineshop-fyi-mockup/` from this repo. It doesn't belong here —
+  `flexnav` is NHS Top Up's repo, and the mockup previews an unrelated
+  commercial project (the MegaMenu/Anything Slider marketplace). Reverted
+  the `tsconfig.json` exclude added for it. The built code itself wasn't
+  lost — copied out to session scratch space, ready to push once it has a
+  proper home.
+
+**Flag for John — public-repo exposure:**
+- `flexnav` is a **public** GitHub repo. The mockup (and its reference to
+  `nop-megamenu-dev`'s and `AnythingSlider`'s real project status) was live
+  in this repo's public commit history for a short window before this
+  removal. No API keys, credentials, or secrets were in any of it — just
+  descriptive product/roadmap text — but it's still commercial-roadmap
+  content that was briefly publicly visible. A plain revert (what just
+  happened) leaves it recoverable from git history by anyone who looks;
+  fully purging it needs a history rewrite (`git filter-repo` + force-push),
+  which is destructive to anyone else's clones and only worth doing if
+  John decides the exposure actually matters. Not done without his say-so.
+
+**Needs a decision from John:**
+- Where should the OnlineShop.fyi mockup actually live? A new repo (still
+  blocked — `create_repository` returns 403 for this session), or folded
+  into the MegaMenu ecosystem repos instead?
+- Is the brief public-history exposure above worth a history rewrite, or
+  fine to leave as a past revert?
+- The wider repo list looks like it has duplicates/stale entries worth
+  clearing up — see chat for the specifics; needs John's call on what to
+  archive vs. keep.
+
+**Branch:** `claude/collaboration-chat-got-uitv2e`
+
+---
+
 ## 2026-09-13 — Claude (session 2)
 
 **Done:**

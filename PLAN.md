@@ -43,30 +43,34 @@ Status: spec captured here, nothing built yet. Flag which page/section
 needs it first before implementing — no current NHS Top Up page has a
 carousel yet.
 
-## OnlineShop.fyi mockup
+## OnlineShop.fyi mockup — moved out of this repo
 
-Built at `onlineshop-fyi-mockup/` in this repo (own `package.json`, fully
-independent Next.js app — see its own README). It's a look-and-function
-preview of the real OnlineShop.fyi marketplace (MegaMenu, Anything Slider,
-advanced full-page themes, payment/banking plugins — see
-`nop-megamenu-dev`'s `MEGAMENU_MASTER_PLAN.md` §9 for the ecosystem vision
-this previews), with an AI shopping-assistant greeter grounded in the real
-current status of each product — nothing is shown as finished or buyable
-before it actually is.
+A first version was built at `onlineshop-fyi-mockup/` in this repo, then
+**removed** — `flexnav` is a **public** repo, and that mockup previews an
+unrelated commercial project (the MegaMenu/Anything Slider marketplace),
+so it doesn't belong here regardless of repo-creation constraints. It
+briefly existed in this repo's public git history; no secrets/keys were in
+it, but John should decide whether that history is worth rewriting (see
+`STATUS.md`).
 
-**It should not stay inside this repo long-term.** It landed here only
-because this session's GitHub integration can't call `create_repository`
-(403 — personal/org repo creation isn't permitted, only pushing to repos
-already attached to the session). Once there's an empty repo for it
-(`Jon3/onlineshop-fyi-mockup` or whatever name is preferred), lift the
-folder out — see that folder's README for the `git subtree split` command.
+The built code is preserved outside git for now (session scratch space) and
+is ready to push to a proper home as soon as one exists — either an empty
+new repo, or a folder inside `nop-megamenu-dev`/`AnythingSlider` if John
+would rather it live alongside the plugins it markets. Repo creation is
+still blocked for this session (`create_repository` → 403).
 
 ## Open items for John
 
-- Create an empty repo for the OnlineShop.fyi mockup so it can move out of
-  `flexnav` (see above).
+- Decide where the OnlineShop.fyi mockup should actually live (new repo vs.
+  inside the MegaMenu ecosystem repos) and how to get it created.
+- Decide whether `flexnav`'s git history needs rewriting to fully remove
+  the brief public exposure of the mockup (see `STATUS.md` for details) —
+  or whether a plain revert commit is good enough.
 - Confirm task boundaries between Claude and Codex once the Codex side is
   set up, so branches/worktrees don't overlap.
+- Review the wider repo list for duplicates/stale repos (NHSTopUp vs.
+  NHS-TopUp-demo vs. this repo; nopMegaMenu vs. nopMegaMenu-4.8x vs.
+  MegaMenu1103 vs. nop-megamenu-dev) — see chat for the audit.
 
 ## Related docs
 
