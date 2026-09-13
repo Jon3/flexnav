@@ -1,15 +1,9 @@
-# Next.js
-.next/
-out/
-next-env.d.ts
-
 # Dependencies
 node_modules/
 
 # Build / misc
 .DS_Store
 *.log
-.env*.local
 
 # Legacy (flexnav plugin) build artifacts
 .sass-cache/
