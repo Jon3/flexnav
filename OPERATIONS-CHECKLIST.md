@@ -104,6 +104,14 @@ and flags, it doesn't auto-publish unchecked.
 compliance obligations — a real cost/process item once that feature is
 actually being built, not before.
 
+## AI assistant (site chat + form helper)
+
+| Item | Status | Notes |
+|---|---|---|
+| Site chat widget | Done | Floating chat widget (`components/ChatWidget.tsx`) on every page, backed by `app/api/assistant/route.ts` and the OpenAI API. Grounded only in this site's own content (FAQs, roles, timeline, disclaimer) via `lib/assistantContext.ts` — instructed never to claim NHS affiliation or that donations are accepted, and to say "I don't know" rather than guess. Needs `OPENAI_API_KEY` set in Vercel; degrades to a clear "not configured" error if missing, same pattern as the Resend email forms. |
+| Get Involved message helper | Done | Optional "✨ Help me phrase this" button on the Get Involved form's message field, using the same API route in a "draft-help" mode to turn a rough note into a fuller message — doesn't invent facts the visitor didn't state, and never blocks submission if it fails. |
+| Abuse/cost protection | Open | Current safeguards are just input-length caps and a short max-token reply — no rate limiting or spend cap yet. Worth revisiting (e.g. Vercel Edge Config / KV-based rate limiting, or an OpenAI usage cap) before this gets meaningful traffic. |
+
 ## Vehicles & logistics
 
 | Item | Status | Notes |

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { roleOptions } from "@/data/roles";
 import { site } from "@/data/site";
 import type { InvolvementRole } from "@/types";
@@ -28,6 +28,31 @@ async function submitGetInvolved(data: GetInvolvedSubmission): Promise<{ ok: boo
 export function GetInvolvedForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "submitted" | "error">("idle");
   const [role, setRole] = useState<InvolvementRole>("supporter");
+  const [helperStatus, setHelperStatus] = useState<"idle" | "loading" | "error">("idle");
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  async function handleHelpMeWrite() {
+    const note = messageRef.current?.value.trim();
+    if (!note) return;
+
+    setHelperStatus("loading");
+    try {
+      const response = await fetch("/api/assistant", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: "draft-help", role, note }),
+      });
+      const data = await response.json();
+      if (response.ok && typeof data.reply === "string" && messageRef.current) {
+        messageRef.current.value = data.reply;
+        setHelperStatus("idle");
+      } else {
+        setHelperStatus("error");
+      }
+    } catch {
+      setHelperStatus("error");
+    }
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -142,8 +167,22 @@ export function GetInvolvedForm() {
           id="message"
           name="message"
           rows={3}
+          ref={messageRef}
           className="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
         />
+        <div className="mt-2 flex items-center gap-3">
+          <button
+            type="button"
+            onClick={handleHelpMeWrite}
+            disabled={helperStatus === "loading"}
+            className="text-xs font-medium text-brand-700 underline decoration-dotted hover:text-brand-800 disabled:opacity-60"
+          >
+            {helperStatus === "loading" ? "Polishing…" : "✨ Help me phrase this"}
+          </button>
+          {helperStatus === "error" && (
+            <span className="text-xs text-amber-700">Couldn&apos;t get a suggestion — your own words work fine.</span>
+          )}
+        </div>
       </div>
 
       <button
